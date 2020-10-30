@@ -6,7 +6,6 @@ import net.md_5.bungee.config.Configuration;
 import net.md_5.bungee.config.ConfigurationProvider;
 import net.md_5.bungee.config.YamlConfiguration;
 import onegigabit.discord.commands.discord;
-import onegigabit.discord.commands.reloader;
 
 import java.io.File;
 import java.io.IOException;
@@ -40,7 +39,6 @@ public final class Discord extends Plugin {
         } else {
             getLogger().info("Plugin is enabled! Proceeding.");
             ProxyServer.getInstance().getPluginManager().registerCommand(this, new discord());
-            ProxyServer.getInstance().getPluginManager().registerCommand(this, new reloader());
         }
         getLogger().info("Yay");
     }
