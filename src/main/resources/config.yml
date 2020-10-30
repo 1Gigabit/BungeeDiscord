@@ -1,0 +1,4 @@
+# Enable or disable the plugin
+enabled: true
+# What should be displayed when /discord is executed
+text: "Change this in the config.yml, you may also use &aCOLOR &4CODES"
