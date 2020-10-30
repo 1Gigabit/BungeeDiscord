@@ -6,6 +6,7 @@ import net.md_5.bungee.config.Configuration;
 import net.md_5.bungee.config.ConfigurationProvider;
 import net.md_5.bungee.config.YamlConfiguration;
 import onegigabit.discord.commands.discord;
+import onegigabit.discord.commands.reloader;
 
 import java.io.File;
 import java.io.IOException;
@@ -14,6 +15,7 @@ import java.nio.file.Files;
 
 public final class Discord extends Plugin {
     public static Configuration configuration = null;
+    public static File dataFolder = null;
     @Override
     public void onEnable() {
         if (!getDataFolder().exists())
@@ -27,6 +29,7 @@ public final class Discord extends Plugin {
             }
         }
         try {
+            dataFolder = getDataFolder();
             configuration = ConfigurationProvider.getProvider(YamlConfiguration.class).load(new File(getDataFolder(), "config.yml"));
             ConfigurationProvider.getProvider(YamlConfiguration.class).save(configuration, new File(getDataFolder(), "config.yml"));
         } catch (IOException e) {
@@ -37,7 +40,7 @@ public final class Discord extends Plugin {
         } else {
             getLogger().info("Plugin is enabled! Proceeding.");
             ProxyServer.getInstance().getPluginManager().registerCommand(this, new discord());
-
+            ProxyServer.getInstance().getPluginManager().registerCommand(this, new reloader());
         }
         getLogger().info("Yay");
     }
@@ -55,5 +58,8 @@ public final class Discord extends Plugin {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+    public static void reload() throws IOException {
+        configuration = ConfigurationProvider.getProvider(YamlConfiguration.class).load(new File(dataFolder, "config.yml"));
     }
 }
