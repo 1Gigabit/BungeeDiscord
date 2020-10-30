@@ -10,7 +10,7 @@ import java.io.IOException;
 
 public class reloader extends Command {
     public reloader() {
-        super("Discord:reload");
+        super("Discord reload");
 
     }
     public void execute(CommandSender sender, String[] args) {
