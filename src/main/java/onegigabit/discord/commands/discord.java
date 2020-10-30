@@ -11,7 +11,6 @@ import java.io.IOException;
 public class discord extends Command {
     public discord() {
         super("Discord");
-
     }
 
     public void execute(CommandSender sender, String[] args) {
@@ -19,12 +18,13 @@ public class discord extends Command {
             ProxiedPlayer p = (ProxiedPlayer) sender;
             if(args.length == 0) {
                 p.sendMessage(new ComponentBuilder(Discord.configuration.getString("text").replace("&","§")).create());
-            } else if(args[0].equals("reload")){
+            } else if(args[0].equals("reload") && sender.getPermissions().contains("discord.reload")) {
                 try {
                     Discord.reload();
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
+                p.sendMessage(new ComponentBuilder(sender.getPermissions().toString()).create());
                 p.sendMessage(new ComponentBuilder("Plugin reloaded successfully").create());
             }
         }
