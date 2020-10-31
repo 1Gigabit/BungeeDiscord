@@ -38,6 +38,7 @@ public final class Discord extends Plugin {
             getLogger().info("Plugin is not enabled in config");
         } else {
             getLogger().info("Plugin is enabled! Proceeding.");
+
             ProxyServer.getInstance().getPluginManager().registerCommand(this, new discord());
         }
         getLogger().info("Yay");

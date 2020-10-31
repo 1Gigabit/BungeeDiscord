@@ -50,5 +50,12 @@
             <version>1.16-R0.3</version>
             <type>javadoc</type>
         </dependency>
+        <dependency>
+            <groupId>net.luckperms</groupId>
+            <artifactId>api</artifactId>
+            <version>5.2</version>
+            <scope>provided</scope>
+        </dependency>
+
     </dependencies>
 </project>
