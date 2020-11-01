@@ -2,3 +2,11 @@
 enabled: true
 # What should be displayed when /discord is executed
 text: "Change this in the config.yml, you may also use &aCOLOR &4CODES"
+
+
+
+
+# Messages
+messages:
+  pluginReloadSuccessful: "&c[DiscordBungeecord] Plugin reloaded successfully"
+  pluginReloadUnsuccessful: "&c[DiscordBungeecord] Plugin reload &4&lFAILED"

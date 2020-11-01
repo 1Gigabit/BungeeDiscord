@@ -59,6 +59,6 @@ public final class Discord extends Plugin {
         }
     }
     public static void reload() throws IOException {
-        configuration = ConfigurationProvider.getProvider(YamlConfiguration.class).load(new File(dataFolder, "config.yml"));
+        configuration = YamlConfiguration.getProvider(YamlConfiguration.class).load(new File(dataFolder, "config.yml"));
     }
 }
